@@ -4,3 +4,4 @@ elpa/
 backups/*
 *.eld
 ac-*
+.python-environments
