@@ -1,0 +1,6 @@
+*~
+elpa/
+*.last
+backups/*
+*.eld
+ac-*
