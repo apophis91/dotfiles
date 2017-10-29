@@ -1,0 +1,12 @@
+# exports
+# scripts
+export PATH=$PATH:${HOME}/.local/bin
+
+# python venv
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
+
+# nodejs
+export PATH=~/.npm-global/bin:$PATH
+export NODE_NO_READLINE=1

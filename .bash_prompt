@@ -1,0 +1,29 @@
+# COLORS
+COLOR_BLACK="\033[0;30m"
+COLOR_BLUE="\033[38;5;95m"
+COLOR_GREEN="\033[0;33m"
+COLOR_RESET="\033[0m"
+
+git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+# USER
+PS1="\[$COLOR_BLACK\]\n[\u]"
+# HOST
+PS1+="\[$COLOR_BLUE\]@\[$COLOR_BLACK\][\h]"
+# GIT Branch
+PS1+="\[$COLOR_GREEN\]\$(git_branch)"
+# Work Dir
+PS1+="\[$COLOR_BLUE\][\w] \n"
+PS1+="\[$COLOR_BLACK\] └─ $ ▶ \[$COLOR_RESET\]"
+
+case $TERM in
+    (xterm*)
+	export PS1
+	# Terminal Title
+	PROMPT_COMMAND='echo -ne "\033]0;Terminal\007"' ;;
+    (*)
+	PS1="$ "
+	unset zle_bracketed_paste ;;
+esac
